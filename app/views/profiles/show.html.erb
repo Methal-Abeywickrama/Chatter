@@ -1,0 +1,15 @@
+<h2>Welcome to your profile</h2>
+<div class="name">
+  <ul>
+    <li>Name: </li>
+    <li><%= @profile.name %></li>
+  </ul>
+</div>
+<div class="description">
+  <ul>
+    <li>Description</li>
+    <li><%= @profile.description %></li>
+  </ul>
+</div>
+
+<%= link_to 'Edit this profile', edit_profile_path %>

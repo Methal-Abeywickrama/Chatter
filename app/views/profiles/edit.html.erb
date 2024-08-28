@@ -1,0 +1,9 @@
+<%= form_with(model: @profile, local: true) do |f| %>
+  <%= f.label :name, "Enter your name" %>
+  <%= f.text_field :name %>
+  <%= f.label :description, "Enter a small description of yourself" %>
+  <%= f.text_area :description %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= link_to 'Back', profile_path, class: 'btn btn-secondary' %>
