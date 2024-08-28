@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_28_061118) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_28_143657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,20 +18,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_061118) do
     t.text "body"
     t.string "commentable_type", null: false
     t.bigint "commentable_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["profile_id"], name: "index_comments_on_profile_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.text "title"
     t.text "body"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.bigint "profile_id", null: false
+    t.index ["profile_id"], name: "index_posts_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_061118) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "users"
-  add_foreign_key "posts", "users"
+  add_foreign_key "comments", "profiles"
+  add_foreign_key "posts", "profiles"
   add_foreign_key "profiles", "users"
 end

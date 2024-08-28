@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :check_if_exists, only: [:show]
+  before_action :check_if_exists, only: [:show, :edit]
 
   def show
     @profile = current_user.profile
