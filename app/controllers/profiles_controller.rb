@@ -1,5 +1,10 @@
 class ProfilesController < ApplicationController
-  before_action :check_if_exists, only: [:show, :edit]
+  before_action :check_if_exists, only: [:show, :edit, :index]
+
+  def index 
+    @my_profile = current_user.profile
+    @profiles = Profile.where.not(id: @my_profile.id)
+  end
 
   def show
     @profile = current_user.profile
@@ -9,7 +14,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
   end
 
-  def edit
+  def edit 
     @profile = current_user.profile
   end
 

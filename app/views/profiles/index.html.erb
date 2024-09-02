@@ -1,0 +1,15 @@
+<h2>Your profile</h2>
+<div class="profile">
+  <%= @my_profile.name %>
+  <%= @my_profile.description %>
+</div>
+
+<h2>Other profiles</h2>
+<% puts 'profiles are' %>
+<% p @profiles %>
+<% @profiles.each do |profile| %>
+  <div class="profile">
+    <%= profile.name %>
+    <%= profile.description %>
+  </div>
+<% end %>
