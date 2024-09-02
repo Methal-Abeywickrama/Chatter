@@ -11,5 +11,11 @@
   <div class="profile">
     <%= profile.name %>
     <%= profile.description %>
+    <% unless current_user.profile.followees.include?(profile) %>
+      <%= button_to "Follow", follows_path(followee_id: profile.id), method: :post %>
+    <% else %>
+      <% follow = current_user.profile.followee_relationships.find_by(followee_id: profile.id) %>
+      <%= button_to "Unfollow", follow_path(follow, followee_id: profile.id), method: :delete %>
+    <% end %>
   </div>
 <% end %>

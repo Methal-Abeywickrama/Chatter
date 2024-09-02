@@ -2,8 +2,8 @@ class Follow < ApplicationRecord
   belongs_to :follower, class_name: "Profile" ,foreign_key: :follower_id
   belongs_to :followee, class_name: "Profile" ,foreign_key: :followee_id
 
-  validated :followee_id, presence: true
-  validated :follower_id, presence: true
+  validates :followee_id, presence: true
+  validates :follower_id, presence: true
   validates :follower_id, uniqueness: { scope: :followee_id  }
 
   validate :cannot_follow_self
