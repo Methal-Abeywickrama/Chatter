@@ -4,3 +4,7 @@ This is the index page
 <%= link_to 'My Profile', my_profile_path %>
 <%= link_to 'List of  profiles', profiles_path %>
 <%= render @posts %>
+<% @posts.each do |post| %>
+  <h2> <%= link_to post.title, post_path(post) %> </h2>
+  <p> <%= post.body %></p>
+<% end %>

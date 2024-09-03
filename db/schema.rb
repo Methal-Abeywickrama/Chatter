@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_055918) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_03_055805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_055918) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id", null: false
+    t.bigint "parent_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["profile_id"], name: "index_comments_on_profile_id"
   end
 
@@ -65,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_055918) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "comments", column: "parent_id"
   add_foreign_key "comments", "profiles"
   add_foreign_key "follows", "profiles", column: "followee_id"
   add_foreign_key "follows", "profiles", column: "follower_id"

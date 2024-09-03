@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   resources :posts
   resources :profiles
+  resources :comments
   resources :follows
   root "posts#index"
   # Custom route to show the current user's profile
