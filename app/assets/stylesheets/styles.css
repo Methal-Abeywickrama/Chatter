@@ -1,0 +1,10 @@
+body {
+  background-color: black  ;
+}
+
+.left-panel {
+  position: sticky;
+  height: 100vh;
+  top: 0;
+  overflow-y: auto;
+}
