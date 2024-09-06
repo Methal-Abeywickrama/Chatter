@@ -18,6 +18,7 @@
 <% @posts.each do |post| %>
   <div class="jumbotron jumbotron-fluid"  >
     <p class="lead" data-controller="post-click" data-post-click-url-value ="<%= post_path(post)%>" data-action="click->post-click#goToPost"> <%= post.body %></p>
+    <div class="author-name"><%= post.profile.name %></div>
     <div>Likes <span class="badge badge-secondary"><%= post.likes.count %></span></div>
     <ul>
     <% unless post.likes.exists?(profile_id: current_user.profile.id) %>
