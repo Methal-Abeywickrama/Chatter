@@ -10,4 +10,8 @@ export default class extends Controller {
   goToPost() {
     window.location.href = this.urlValue
   }
+
+  goToHome() {
+    window.location.href = this.urlValue
+  }
 }
