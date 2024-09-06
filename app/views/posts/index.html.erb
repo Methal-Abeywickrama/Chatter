@@ -1,0 +1,22 @@
+<div class="feed-selection d-flex flex-row justify-content-evenly ">
+  <div class="for-you">
+    For you
+  </div>
+  <div class="following">
+    following
+  </div>
+</div>
+<hr my-4 >
+<div class="new-post">
+  <%= render 'newpost' %>
+</div>
+<hr my-4 >
+<div class="feed">
+</div>
+
+
+<% @posts.each do |post| %>
+  <div class="jumbotron jumbotron-fluid" data-controller="post-click" data-post-click-url-value ="<%= post_path(post)%>" data-action="click->post-click#goToPost" >
+    <p class="lead"> <%= post.body %></p>
+  </div>
+<% end %>
