@@ -1,10 +1,23 @@
-This is the index page
+<div class="feed-selection d-flex flex-row justify-content-evenly ">
+  <div class="for-you">
+    For you
+  </div>
+  <div class="following">
+    following
+  </div>
+</div>
+<hr my-4 >
+<div class="new-post">
+  <%= render 'newpost' %>
+</div>
+<hr my-4 >
+<div class="feed">
+</div>
 
-<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
-<%= link_to 'My Profile', my_profile_path %>
-<%= link_to 'List of  profiles', profiles_path %>
-<%= render @posts %>
+
 <% @posts.each do |post| %>
-  <h2> <%= link_to post.title, post_path(post) %> </h2>
-  <p> <%= post.body %></p>
+  <div class="jumbotron jumbotron-fluid" data-controller="post-click" data-post-click-url-value ="<%= post_path(post)%>" data-action="click->post-click#goToPost" >
+    <h2> eee </h2>
+    <p class="lead"> <%= post.body %></p>
+  </div>
 <% end %>

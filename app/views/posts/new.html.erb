@@ -1,7 +1,1 @@
-<%= form_with(model: @post, local: true) do |f| %>
-  <%= f.label :title, "Enter the title for the post here" %>
-  <%= f.text_area :title %>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render 'newpost' %>
