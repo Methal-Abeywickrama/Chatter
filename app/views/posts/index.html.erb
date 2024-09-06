@@ -17,7 +17,6 @@
 
 <% @posts.each do |post| %>
   <div class="jumbotron jumbotron-fluid" data-controller="post-click" data-post-click-url-value ="<%= post_path(post)%>" data-action="click->post-click#goToPost" >
-    <h2> eee </h2>
     <p class="lead"> <%= post.body %></p>
   </div>
 <% end %>

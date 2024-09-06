@@ -8,7 +8,9 @@
       <%= render 'comments/form_template', commentable: comment, caption: 'Reply', post_id: @post.id %>
       <% p comment.replies %>
       <% comment.replies.each do |com| %>
+      <div class="sub_reply p-2">
         <%= com.body %>
+      </div>
       <% end %>
     </div>
   <% end %>
