@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :profiles
   resources :comments
+  resources :likes
   resources :follows
   root "posts#index"
   # Custom route to show the current user's profile
