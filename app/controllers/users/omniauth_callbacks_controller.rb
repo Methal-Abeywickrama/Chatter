@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < ApplicationController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     @user = User.from_omniauth(request.env['omniauth.auth'])
 
@@ -12,6 +12,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
   def failure
+    puts 'fuck failed'
     redirect_to root_path
   end
 end

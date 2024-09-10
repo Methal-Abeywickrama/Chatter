@@ -21,11 +21,19 @@
     <div class="author-name"><%= post.profile.name %></div>
     <div>Likes <span class="badge badge-secondary"><%= post.likes.count %></span></div>
     <ul>
+    <% puts 'post is' %>
+    <% p post %>
+    <% p current_user %>
     <% unless post.likes.exists?(profile_id: current_user.profile.id) %>
       <li><%= link_to "Like", new_like_path(post_id: post.id), class:"btn btn-primary" %></li>
     <% else %>
       <li><%= link_to "Dislike", like_path(post.likes.find_by(profile_id: current_user.profile.id)),data: { turbo_method: :delete}, class:"btn btn-primary" %></li>
 
+    <% end %>
+      
+      <% puts 'hapy' %>
+    <% begin %>
+    <% rescue => exception %>
     <% end %>
     </ul>
   </div>
