@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
+    @posts = @profile.posts
   end
 
   def new 

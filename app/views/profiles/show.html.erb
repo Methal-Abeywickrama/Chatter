@@ -11,6 +11,12 @@
     <li><%= @profile.description %></li>
   </ul>
 </div>
+<div class="profile-list">
+<h2>Your posts</h2>
+  <% @posts.each do |post| %>
+    <p><%= post.body %></p>
+  <% end %>
+</div>
 
 <%= link_to 'Edit this profile', edit_my_profile_path %>
 <%= link_to 'Home', posts_path %>
