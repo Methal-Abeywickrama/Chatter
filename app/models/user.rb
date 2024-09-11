@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
   has_one :profile, dependent: :destroy
+  after_create :send_welcome_email
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -17,6 +18,12 @@ class User < ApplicationRecord
       )
     end
     user
+  end
+
+  private 
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_now
   end
 
 end

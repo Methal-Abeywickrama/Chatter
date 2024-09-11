@@ -70,3 +70,4 @@ end
 gem "devise", "~> 4.9"
 gem 'omniauth'
 gem 'omniauth-google-oauth2' # Example for Google OAuth2
+gem "letter_opener", group: :development
