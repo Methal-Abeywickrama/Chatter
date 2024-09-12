@@ -5,11 +5,20 @@
     <li><%= @profile.name %></li>
   </ul>
 </div>
+<div class="profile_picture">
+  <%= image_tag gravatar_url(current_user.email, 150), alt: @profile.name, class: "avatar" %>
+</div>
 <div class="description">
   <ul>
     <li>Description</li>
     <li><%= @profile.description %></li>
   </ul>
+</div>
+<div class="profile-list">
+<h2>Your posts</h2>
+  <% @posts.each do |post| %>
+    <p><%= post.body %></p>
+<% end %>
 </div>
 
 <%= link_to 'Edit this profile', edit_my_profile_path %>

@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  # before_action :send_mail, only: :create 
+
   def index 
     @posts = Post.all
     @post = Post.new
@@ -25,6 +27,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :image)
+  end
+
+  def send_mail 
+    UserMailer.with(user: current_user).welcome_email.deliver_now
   end
 end
