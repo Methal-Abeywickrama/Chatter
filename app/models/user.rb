@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
   has_one :profile, dependent: :destroy
   after_create :send_welcome_email
+  has_one_attached :avatar
 
   def self.from_omniauth(access_token)
     data = access_token.info
