@@ -18,6 +18,13 @@
 <% @posts.each do |post| %>
   <div class="jumbotron jumbotron-fluid"  >
     <p class="lead" data-controller="post-click" data-post-click-url-value ="<%= post_path(post)%>" data-action="click->post-click#goToPost"> <%= post.body %></p>
+    
+    <% if post.image.attached? %>
+      <div>
+        <div class="tst">Image available</div>
+        <%= image_tag post.image, size: 100 %>
+      </div>
+    <% end %>
     <div class="author-name"><%= post.profile.name %></div>
     <div>Likes <span class="badge badge-secondary"><%= post.likes.count %></span></div>
     <ul>
